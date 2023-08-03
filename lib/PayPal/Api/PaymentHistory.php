@@ -11,9 +11,9 @@ use PayPal\Common\PayPalModel;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\Payment[] payments
- * @property int count
- * @property string next_id
+ * @property list<\PayPal\Api\Payment> $payments
+ * @property positive-int $count
+ * @property non-empty-string|null $next_id
  */
 class PaymentHistory extends PayPalModel
 {
@@ -109,7 +109,7 @@ class PaymentHistory extends PayPalModel
     /**
      * Identifier of the next element to get the next range of results.
      *
-     * @return string
+     * @return non-empty-string|null
      */
     public function getNextId()
     {
