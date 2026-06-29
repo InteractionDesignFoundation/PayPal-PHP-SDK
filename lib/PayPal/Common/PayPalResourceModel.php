@@ -10,7 +10,7 @@ use PayPal\Transport\PayPalRestCall;
  * Class PayPalResourceModel
  * An Executable PayPalModel Class
  *
- * @property \PayPal\Api\Links[] links
+ * @property \PayPal\Api\Links[] $links
  * @package PayPal\Common
  */
 class PayPalResourceModel extends PayPalModel implements IResource
