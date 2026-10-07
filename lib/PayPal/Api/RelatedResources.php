@@ -35,7 +35,8 @@ class RelatedResources extends PayPalModel
     /**
      * Sale transaction
      *
-     * @return \PayPal\Api\Sale|null
+     * @return \PayPal\Api\Sale
+     * @psalm-return \PayPal\Api\Sale|null
      */
     public function getSale()
     {
