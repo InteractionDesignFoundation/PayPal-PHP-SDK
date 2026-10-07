@@ -54,7 +54,7 @@ class ReflectionUtil
         }
 
         if (isset($param)) {
-            $anno = preg_split("/[\s\[\]]+/", $param);
+            $anno = preg_split("/[\s\[\]]+/", self::withoutNullType($param));
             return $anno[0];
         } else {
             throw new PayPalConfigurationException("Getter function for '$propertyName' in '$class' class should have a proper return type.");
@@ -81,7 +81,8 @@ class ReflectionUtil
         }
 
         if (isset($param)) {
-            return substr($param, -strlen('[]'))==='[]';
+            $type = strtok(self::withoutNullType($param), " \t");
+            return substr($type, -strlen('[]'))==='[]';
         } else {
             throw new PayPalConfigurationException("Getter function for '$propertyName' in '$class' class should have a proper return type.");
         }
@@ -136,6 +137,20 @@ class ReflectionUtil
     private static function replace_callback($match)
     {
         return ucwords($match[2]);
+    }
+
+    /**
+     * Drops `null` from the type in a tag like "\PayPal\Api\Sale|null", keeping any description after it.
+     *
+     * @param string $param
+     * @return string
+     */
+    private static function withoutNullType($param)
+    {
+        $parts = preg_split('/\s+/', trim($param), 2);
+        $types = array_filter(explode('|', $parts[0]), static fn (string $type): bool => strtolower($type) !== 'null');
+
+        return implode('|', $types) . (isset($parts[1]) ? ' ' . $parts[1] : '');
     }
 
     /**
