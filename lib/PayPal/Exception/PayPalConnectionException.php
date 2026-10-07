@@ -49,7 +49,7 @@ class PayPalConnectionException extends \Exception
     /**
      * Gets Data
      *
-     * @return string
+     * @return string|null
      */
     public function getData()
     {

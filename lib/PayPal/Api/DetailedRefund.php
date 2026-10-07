@@ -104,7 +104,7 @@ class DetailedRefund extends Refund
     /**
      * Transaction fee refunded to original recipient of payment.
      *
-     * @return \PayPal\Api\Currency
+     * @return \PayPal\Api\Currency|null
      */
     public function getRefundFromTransactionFee()
     {
