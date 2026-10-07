@@ -343,7 +343,7 @@ class Sale extends PayPalResourceModel
     /**
      * Transaction fee applicable for this payment.
      *
-     * @return \PayPal\Api\Currency
+     * @return \PayPal\Api\Currency|null
      */
     public function getTransactionFee()
     {

@@ -19,7 +19,7 @@ use PayPal\Common\PayPalModel;
  * @property string $sender_batch_id
  * @property \PayPal\Api\PayoutItem $payout_item
  * @property string $time_processed
- * @property \PayPal\Api\Error $errors
+ * @property \PayPal\Api\Error|null $errors
  * @property \PayPal\Api\Links[] $links
  */
 class PayoutItemDetails extends PayPalModel
@@ -211,7 +211,7 @@ class PayoutItemDetails extends PayPalModel
     /**
      * Sets Errors
      *
-     * @param \PayPal\Api\Error $errors
+     * @param \PayPal\Api\Error|null $errors
      * 
      * @return $this
      */
@@ -224,7 +224,7 @@ class PayoutItemDetails extends PayPalModel
     /**
      * Gets Errors
      *
-     * @return \PayPal\Api\Error
+     * @return \PayPal\Api\Error|null
      */
     public function getErrors()
     {
