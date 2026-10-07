@@ -224,8 +224,7 @@ class PayoutItemDetails extends PayPalModel
     /**
      * Gets Errors
      *
-     * @return \PayPal\Api\Error
-     * @psalm-return \PayPal\Api\Error|null
+     * @return \PayPal\Api\Error|null
      */
     public function getErrors()
     {
